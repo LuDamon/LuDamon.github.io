@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lu.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lu.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift,iOS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="往期文章： 你可能不知道的 Swift 开发小技巧——Pt.1  对数组进行分组假如有一组文章，要把这些文章按照 category 进行分组，可以利用 Pt.1中提到的，给字典的某个 key 设置默认值的技巧，实现如下： 1234567891011121314151617struct Article &amp;#123;    let title: String    let category: Stri">
+<meta name="keywords" content="Swift,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你可能不知道的 Swift 开发小技巧——Pt.2">
+<meta property="og:url" content="https://ludamon.github.io/你可能不知道的-Swift-开发小技巧——Pt-2/index.html">
+<meta property="og:site_name" content="iOS 知识小集">
+<meta property="og:description" content="往期文章： 你可能不知道的 Swift 开发小技巧——Pt.1  对数组进行分组假如有一组文章，要把这些文章按照 category 进行分组，可以利用 Pt.1中提到的，给字典的某个 key 设置默认值的技巧，实现如下： 1234567891011121314151617struct Article &amp;#123;    let title: String    let category: Stri">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11db62c7005c47f58e9e2a02f3061b1d~tplv-k3u1fbpfcp-watermark.image?">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8239f09d662248b6ac7188ecfb7dd92c~tplv-k3u1fbpfcp-watermark.image?">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cd8c939499a4e269f28a3852c490e55~tplv-k3u1fbpfcp-watermark.image?">
+<meta property="og:updated_time" content="2022-04-17T10:09:24.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你可能不知道的 Swift 开发小技巧——Pt.2">
+<meta name="twitter:description" content="往期文章： 你可能不知道的 Swift 开发小技巧——Pt.1  对数组进行分组假如有一组文章，要把这些文章按照 category 进行分组，可以利用 Pt.1中提到的，给字典的某个 key 设置默认值的技巧，实现如下： 1234567891011121314151617struct Article &amp;#123;    let title: String    let category: Stri">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11db62c7005c47f58e9e2a02f3061b1d~tplv-k3u1fbpfcp-watermark.image?">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'OZBWN3PCEF',
+      apiKey: '3a3ab37eabe38d7c39801cd40a99dc77',
+      indexName: 'hexo_production',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，耗时 ${time} 毫秒"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ludamon.github.io/你可能不知道的-Swift-开发小技巧——Pt-2/"/>
+
+
+
+
+
+  <title>你可能不知道的 Swift 开发小技巧——Pt.2 | iOS 知识小集</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.1.4"></script>
+
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOS 知识小集</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/你可能不知道的-Swift-开发小技巧——Pt-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你可能不知道的 Swift 开发小技巧——Pt.2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-16T11:26:45+08:00">
+                2021-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/你可能不知道的-Swift-开发小技巧——Pt-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/你可能不知道的-Swift-开发小技巧——Pt-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,084
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>往期文章： <a href="https://juejin.cn/post/7030610828285968414" target="_blank" rel="noopener">你可能不知道的 Swift 开发小技巧——Pt.1</a></p>
+<hr>
+<h2 id="对数组进行分组"><a href="#对数组进行分组" class="headerlink" title="对数组进行分组"></a>对数组进行分组</h2><p>假如有一组文章，要把这些文章按照 category 进行分组，可以利用 <a href="https://juejin.cn/post/7030610828285968414" target="_blank" rel="noopener">Pt.1</a>中提到的，给字典的某个 key 设置默认值的技巧，实现如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> category: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> articles = [</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题1"</span>, category: <span class="string">"Swift"</span>),</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题2"</span>, category: <span class="string">"Swift"</span>),</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题3"</span>, category: <span class="string">"Objective-C"</span>),</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题4"</span>, category: <span class="string">"Objective-C"</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> groupByCategory = [<span class="type">String</span> : [<span class="type">Article</span>]]()</span><br><span class="line"><span class="keyword">for</span> article <span class="keyword">in</span> articles &#123;</span><br><span class="line">    groupByCategory[article.category, <span class="keyword">default</span>: []].append(article)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(groupByCategory)</span><br></pre></td></tr></table></figure>
+<p>实际上我们可以使用 Dictionary 的内置初始化方法来简化上面的 for 循环：</p>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> groupByCategory = <span class="type">Dictionary</span>(grouping: articles, by: &#123;$<span class="number">0</span>.category&#125;)</span><br><span class="line"><span class="built_in">print</span>(groupByCategory)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="检查所有集合项是否满足条件"><a href="#检查所有集合项是否满足条件" class="headerlink" title="检查所有集合项是否满足条件"></a>检查所有集合项是否满足条件</h2><p>假如有这么需求：给定一组表示年龄的整型数组，求他们的平均年龄。计算总和，除以数量，so easy~ </p>
+<p>然而并不是每个整数都能表示年龄，因为传入的值有可能小于等于 0。对于输入参数：年龄数组，是不可控的。因此遇到不符合实际的值，需要抛出错误。通常会这么实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findAverage</span><span class="params">(ages: [Int])</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isAgeValid = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> age <span class="keyword">in</span> ages &#123;</span><br><span class="line">        <span class="keyword">if</span> age &lt;= <span class="number">0</span> &#123;</span><br><span class="line">            isAgeValid = <span class="literal">false</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">guard</span> isAgeValid <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">"所有的年龄必须大于 0"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> sum = ages.<span class="built_in">reduce</span>(<span class="number">0</span>, +)</span><br><span class="line">    <span class="keyword">let</span> <span class="built_in">count</span> = ages.<span class="built_in">count</span></span><br><span class="line">    <span class="keyword">return</span> <span class="type">CGFloat</span>(sum) / <span class="type">CGFloat</span>(<span class="built_in">count</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findAverage(ages: [<span class="number">22</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">28</span>, <span class="number">30</span>])</span><br></pre></td></tr></table></figure>
+<p>我们可以使用 Array 的方法：<code>allSatisfy(_:)</code>来简化 for 循环代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findAverage</span><span class="params">(ages: [Int])</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> isAgeValid = ages.allSatisfy &#123; $<span class="number">0</span> &gt; <span class="number">0</span> &#125;</span><br><span class="line">    <span class="keyword">guard</span> isAgeValid <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">"所有的年龄必须大于 0"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> sum = ages.<span class="built_in">reduce</span>(<span class="number">0</span>, +)</span><br><span class="line">    <span class="keyword">let</span> <span class="built_in">count</span> = ages.<span class="built_in">count</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="type">Double</span>(sum) / <span class="type">Double</span>(<span class="built_in">count</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findAverage(ages: [<span class="number">22</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">28</span>, <span class="number">30</span>])</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="保留-Struct-的默认初始化器"><a href="#保留-Struct-的默认初始化器" class="headerlink" title="保留 Struct 的默认初始化器"></a>保留 Struct 的默认初始化器</h2><p>大家都知道，Swift 中的 Struct 是值类型，自带一个成员初始化器。</p>
+<p>不知道大家有没有遇到这样的情况，需要自定义 Struct 的初始化器，又想保留默认的初始化器，但是自定义后，默认的初始化器就消失了。</p>
+<p>先看下默认的初始化器：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11db62c7005c47f58e9e2a02f3061b1d~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>自定义初始化器后，默认初始化器就消失了：</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8239f09d662248b6ac7188ecfb7dd92c~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>想同时保留自定义的和默认的，就得祭出 extension 大法了：</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cd8c939499a4e269f28a3852c490e55~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<hr>
+<h2 id="过滤数组中的-nil"><a href="#过滤数组中的-nil" class="headerlink" title="过滤数组中的 nil"></a>过滤数组中的 nil</h2><p>提到过滤，第一反应可能就是 <code>filter(_:)</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = [<span class="number">1</span>, <span class="literal">nil</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> y = x.<span class="built_in">filter</span> &#123; $<span class="number">0</span> != <span class="literal">nil</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>虽然也可以，但不不是那么好。上面的 x 的类型 [Int?]，y 也是。有什么问题？问题是，我们已经明确知道 y 里面不会包含 nil 值了，但编译器不知道，所以在遍历 y 时，依然需要对其中的元素进行解包：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = [<span class="number">1</span>, <span class="literal">nil</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> y = x.<span class="built_in">filter</span> &#123; $<span class="number">0</span> != <span class="literal">nil</span> &#125;</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> y &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"item is <span class="subst">\(item!)</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更好的做法是使用 <code>compactMap(_:)</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = [<span class="number">1</span>, <span class="literal">nil</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> y = x.compactMap &#123; $<span class="number">0</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>这时候 x 是 [Int?] 的类型，y 是 [Int] 的类型。</p>
+<hr>
+<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><p>假如需要同时遍历两个数组，你会怎么做？在我知道 zip 之前，我通常都是这么做：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array1 = [<span class="string">"title1"</span>, <span class="string">"title2"</span>, <span class="string">"title3"</span>, <span class="string">"title4"</span>]</span><br><span class="line"><span class="keyword">let</span> array2 = [<span class="string">"value1"</span>, <span class="string">"value2"</span>, <span class="string">"value3"</span>, <span class="string">"value4"</span>, <span class="string">"value5"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="built_in">count</span> = <span class="built_in">min</span>(array1.<span class="built_in">count</span>, array2.<span class="built_in">count</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title = array1[i]</span><br><span class="line">    <span class="keyword">let</span> value = array2[i]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再来看看 zip 的用法，zip 可以组合两个序列，而且会进行边界检查：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (title,value) <span class="keyword">in</span> <span class="built_in">zip</span>(array1, array2) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(title)</span>---<span class="subst">\(value)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">title1---value1</span><br><span class="line">title2---value2</span><br><span class="line">title3---value3</span><br><span class="line">title4---value4</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><ul>
+<li>使用 Dictionary 的 init(grouping:by:) 方法对数组进行分组</li>
+<li>使用 Array 的 allSatisfy(_:) 方法检查所有集合项是否满足条件</li>
+<li>通过 extension 添加自定义初始化器从而保留默认初始化器</li>
+<li>使用 compactMap(_:) 过滤数组中的 nil</li>
+<li>使用 zip 组合两个集合</li>
+</ul>
+<p>往期文章： <a href="https://juejin.cn/post/7030610828285968414" target="_blank" rel="noopener">你可能不知道的 Swift 开发小技巧——Pt.1</a></p>
+<p>以上就是平时在项目中使用比较多的 Swift 小技巧啦，我也会继续总结更多的小技巧和大家进行分享~</p>
+<p>如果大家遇到以前没用到过的，不妨动手试试吧~</p>
+<blockquote>
+<p>本文首发掘金：<a href="https://juejin.cn/post/7031003650679898149" target="_blank" rel="noopener">你可能不知道的 Swift 开发小技巧——Pt.2 - 掘金 (juejin.cn)</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift-iOS/" rel="tag"><i class="fa fa-tag"></i> Swift,iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/你可能不知道的-Swift-开发小技巧——Pt-1/" rel="next" title="你可能不知道的 Swift 开发小技巧——Pt.1">
+                <i class="fa fa-chevron-left"></i> 你可能不知道的 Swift 开发小技巧——Pt.1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Xcode-的拼写检查，你开启了吗？/" rel="prev" title="Xcode 的拼写检查，你开启了吗？">
+                Xcode 的拼写检查，你开启了吗？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true"
+                alt="Lumm" />
+            
+              <p class="site-author-name" itemprop="name">Lumm</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对数组进行分组"><span class="nav-number">1.</span> <span class="nav-text">对数组进行分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查所有集合项是否满足条件"><span class="nav-number">2.</span> <span class="nav-text">检查所有集合项是否满足条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留-Struct-的默认初始化器"><span class="nav-number">3.</span> <span class="nav-text">保留 Struct 的默认初始化器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤数组中的-nil"><span class="nav-number">4.</span> <span class="nav-text">过滤数组中的 nil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip"><span class="nav-number">5.</span> <span class="nav-text">zip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lumm</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    访问用户:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  </div>
+
+   
+    <span class="post-meta-divider">|</span>
+  
+
+   <div class="powered-by">
+  <i class="fa fa-eye"></i><span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  </div>
+
+ 
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> --!>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+--!>
+
+
+
+
+  <div class="theme-info"><i class="fa fa-pencil"></i> <span class="post-count">全站共17.6k字</span></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+	    id: '<%= page.date %>',
+            owner: 'LuDamon',
+            repo: 'ludamon.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7afb4b4be8f3ea81850ea0c82ca28b237b78e88b',
+            
+                client_id: '958b03e5ff96ec2d857a'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

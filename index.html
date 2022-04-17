@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/重构代码的-5-个-Xcode-技巧/">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/Swift-实现将自定义对象保存到-UserDefaults-中/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lumm">
@@ -320,7 +320,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/重构代码的-5-个-Xcode-技巧/" itemprop="url">重构代码的 5 个 Xcode 技巧</a></h1>
+                <a class="post-title-link" href="/Swift-实现将自定义对象保存到-UserDefaults-中/" itemprop="url">Swift 实现将自定义对象保存到 UserDefaults 中</a></h1>
         
 
         <div class="post-meta">
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-17T17:35:47+08:00">
-                2022-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-30T14:09:42+08:00">
+                2021-11-30
               </time>
             
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,112
+                  928
                 </span>
               
 
@@ -424,19 +424,202 @@
 
       
         
-          <p>作为一名开发人员，有时重构代码比写代码的时间都要多，所以知道如何重构一段代码是开发者需要掌握的一项非常重要的技能之一。它还有很多的好处，例如：</p>
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>大家都知道，iOS 支持这些类型的对象，直接保存到 UserDefaults 中，比如 Int，String，Float，Double，Bool，URL，Data 或者这些类型的集合。</p>
+<p>但是如果我们想要将自定义对象保存到 UserDefaults 中呢？</p>
+<p>看看苹果的说法：</p>
+<blockquote>
+<p>If you want to store any other type of object, you should typically archive it to create an instance of NSData<br><br>如果要存储任何其他类型的对象，通常应该对其进行归档，来创建一个 NSData 实例。<br><br><a href="https://developer.apple.com/documentation/foundation/userdefaults" target="_blank" rel="noopener">Apple Documentation</a></p>
+</blockquote>
+<p>现在我们知道要保存自定义对象到 UserDefaults 中，就要把它转换为 Data 对象。基于此，我们可以使用 Codable 来做进一步的完善。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Swift-实现将自定义对象保存到-UserDefaults-中/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/Swift-中的-Self-Self-Type-self/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Swift-中的-Self-Self-Type-self/" itemprop="url">Swift 中的 Self & Self.Type & self</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-29T17:08:16+08:00">
+                2021-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  657
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>你可能在写代码的时候已经用过很多次 self 这个关键词了，但是你有没有想过什么是 self 呢？今天我们就来看看：</p>
 <ul>
-<li>有了重构思维，我们从一开始就能有意识的去编写更简洁、更安全的代码</li>
-<li>提高代码的可测试性</li>
-<li>可以更好的进行 code review</li>
+<li>什么是 self、Self 和 Self.Type？</li>
+<li>都在什么情况下使用？</li>
 </ul>
-<p>另外，还有专门的书籍和网站去介绍如何进行代码重构。</p>
-<p>所以，今天就来分享使用 Xcode 去重构代码的 5 个小技巧。</p>
-<h3 id="1-批量重命名"><a href="#1-批量重命名" class="headerlink" title="1. 批量重命名"></a>1. 批量重命名</h3><p>给属性、参数、方法、类取个好名字不仅可以一看到名字就知道是干什么的，还有利于后期的维护和交接，想想如果变量名都是 test1、test2 之类的，当需求变更，再回头看代码，是有多么的糟心。</p>
-<p>那如果想给它们更名，但是调用的地方又比较多，需要怎么重命名呢？有同学说全局替换，emmm… 不够优雅，而且容易替换错。</p>
+<hr>
+<h2 id="self"><a href="#self" class="headerlink" title="self"></a>self</h2><p>这个大家用的比较多了，self 通常用于当你需要引用你当前所在范围内的对象时。所以，例如，如果在 Rocket 的实例方法中使用 self，在这种情况下，self 将是该 Rocket 的实例。这个很好理解~</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rocket</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">launch</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"10 秒内发射 <span class="subst">\(<span class="keyword">self</span>)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rocket = <span class="type">Rocket</span>()</span><br><span class="line">rocket.launch() <span class="comment">//10 秒内发射 Rocket()</span></span><br></pre></td></tr></table></figure>
+<p>但是，如果要在类方法或静态方法中使用 self，该怎么办？在这种情况下，self 不能作为对实例的引用，因为没有实例，而 self 具有当前类型的值。这是因为静态方法和类方法存在于类型本身而不是实例上。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/重构代码的-5-个-Xcode-技巧/" rel="contents">
+            <a class="btn" href="/Swift-中的-Self-Self-Type-self/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -487,7 +670,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/iOS-添加全局水印/">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/Swift-中的关键字——Lazy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lumm">
@@ -506,7 +689,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/iOS-添加全局水印/" itemprop="url">iOS 添加全局水印</a></h1>
+                <a class="post-title-link" href="/Swift-中的关键字——Lazy/" itemprop="url">Swift 中的关键字——Lazy</a></h1>
         
 
         <div class="post-meta">
@@ -518,8 +701,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T19:53:59+08:00">
-                2019-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-28T22:53:58+08:00">
+                2021-11-28
               </time>
             
 
@@ -541,8 +724,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识小集/" itemprop="url" rel="index">
-                    <span itemprop="name">知识小集</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -572,7 +755,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1,219
                 </span>
               
 
@@ -588,7 +771,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -610,377 +793,21 @@
 
       
         
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/iPhone-强制横竖屏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lumm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iOS 知识小集">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/iPhone-强制横竖屏/" itemprop="url">iPhone 强制横竖屏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:01:04+08:00">
-                2019-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识小集/" itemprop="url" rel="index">
-                    <span itemprop="name">知识小集</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  247
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>目前负责的 App 几乎全部页面都是竖屏操作， 所以在 Targets-&gt;General-&gt;Device Orientation 中只勾了Portrait.</p>
-<p><img src="https://github.com/LuDamon/Sources/blob/master/Images/device_orientation.png?raw=true" alt="竖屏设置"></p>
-<p>但避免不了个别界面需要横屏操作，这就需要 强制切换横竖屏了：</p>
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>相信大家在日常开发时，一定用过关键字 Lazy。那使用它有什么好处呢？什么时候才需要使用呢，让我们一起来看看吧~</p>
+<p>使用 Lazy 可以做很多事情：</p>
 <ul>
-<li><p>在 AppDelegate 中定义公开属性 <code>var allowRotation: Bool = false</code></p>
-</li>
-<li><p>实现 UIApplicationDelegate 的 代理方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?)</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> allowRotation &#123;</span><br><span class="line">			<span class="keyword">return</span> .landscape	<span class="comment">//横屏</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> .portrait	<span class="comment">//竖屏</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/iPhone-强制横竖屏/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/cocoaPods指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lumm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iOS 知识小集">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/cocoaPods指南/" itemprop="url">cocoaPods指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T11:00:59+08:00">
-                2018-06-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cocoaPods/" itemprop="url" rel="index">
-                    <span itemprop="name">cocoaPods</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  389
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="1、更改软件源"><a href="#1、更改软件源" class="headerlink" title="1、更改软件源"></a>1、更改软件源</h5><ul>
-<li><p><code>sudo gem update --system</code></p>
-<p>如果提示没权限:  Operation not permitted - /usr/bin/update_rubygems<br>使用 <code>sudo gem update -n /usr/local/bin --system</code></p>
-</li>
-<li><p><code>gem sources --remove https://rubygems.org/</code></p>
-</li>
-<li><p><code>gem sources -a https://ruby.taobao.org/</code></p>
-</li>
-<li><p><code>gem sources -l</code></p>
-</li>
+<li>实例化对象时不用给它的部分或全部成员初始值</li>
+<li>调用之前，永远不会执行</li>
+<li>存储计算值并防止重复计算</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注：由于淘宝源不再更新，建议替换成Ruby China源：</span><br><span class="line">gem sources --remove https://ruby.taobao.org/</span><br><span class="line">gem sources -a https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="声明-Lazy"><a href="#声明-Lazy" class="headerlink" title="声明 Lazy"></a>声明 Lazy</h2><p>只要在成员变量前面添加一个 Lazy 关键字，就可以将其声明为 lazy。惰性成员必须声明为 var。苹果的说法：</p>
+<blockquote>
+<p>You must always declare a lazy property as a variable (with the <code>var</code> keyword), because its initial value might not be retrieved until after instance initialization completes.<br><br><br>必须始终将惰性属性声明为可变的(使用 var 关键字) ，因为在实例初始化完成之前，可能无法检索其初始值</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/cocoaPods指南/" rel="contents">
+            <a class="btn" href="/Swift-中的关键字——Lazy/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1031,7 +858,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/pod-install-pod-update/">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/Swift-中的链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lumm">
@@ -1050,7 +877,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/pod-install-pod-update/" itemprop="url">pod install & pod update</a></h1>
+                <a class="post-title-link" href="/Swift-中的链表/" itemprop="url">Swift 中的链表</a></h1>
         
 
         <div class="post-meta">
@@ -1062,8 +889,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T10:11:26+08:00">
-                2018-06-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-27T23:55:31+08:00">
+                2021-11-27
               </time>
             
 
@@ -1085,8 +912,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cocoaPods/" itemprop="url" rel="index">
-                    <span itemprop="name">cocoaPods</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1116,7 +943,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,832
+                  1,589
                 </span>
               
 
@@ -1154,16 +981,20 @@
 
       
         
-          <p>原文链接：<a href="https://link.jianshu.com/?t=https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="noopener">https://guides.cocoapods.org/using/pod-install-vs-update.html</a></p>
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>数据结构是用于在计算机中组织和存储数据的容器，以便我们能够有效地执行操作。它们是编程最基本的组成部分。最知名和最常用的数据结构，除了 数组、 栈 和 队列等，还有一个非常有用的数据结构–链表。不过，Swift 没有提供内置的链表结构，所以，今天我们就来一步步的实现一个。</p>
+<hr>
+<h2 id="什么是单链表"><a href="#什么是单链表" class="headerlink" title="什么是单链表"></a>什么是单链表</h2><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b4d6e6937b04cd2aef6cd868664cd1e~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>链表是链接节点的列表。节点是一个单独的元素，它包含一个泛型值和一个指向下一个节点的指针。链表有以下几种类型:</p>
 <ul>
-<li>译者：<a href="https://link.jianshu.com/?t=http://soledad.me" target="_blank" rel="noopener">Soledad</a>、<a href="https://ludamon.github.io/">DamonLu</a></li>
-<li>微博：<a href="https://link.jianshu.com/?t=http://weibo.com/caiyue233" target="_blank" rel="noopener">@CaiYue_</a></li>
+<li><code>单链表</code>  每个节点只有一个指向下一个节点的指针。操作只能向一个方向传递</li>
+<li><code>双向链表</code> 每个节点有两个指针，一个指向下一个节点，另一个指向前一个节点。操作可以向前和向后两个方向进行</li>
+<li><code>循环链表</code> 最后一个节点的下一个指针指向第一个节点，第一个节点的上一个指针指向最后一个节点</li>
 </ul>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人刚接触 CocoaPods 时都会觉得 <code>pod install</code> 只在第一次给项目配置 CocoaPods 的时候使用，<code>pod update</code> 只在之后使用。然而 <strong>压根就不是那样的</strong>。（译者注：原文中还提到这里的install和update的含义和字典中的意思不完全相同，要具体问题具体分析，根据相关文档来判断。）</p>
-<p>这篇文章的目的就是向你解释什么时候该用 <code>pod install</code> 和 <code>pod update</code> 。</p>
+<p>今天我们来实现 Swift 中的单链表。</p>
+<hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/pod-install-pod-update/" rel="contents">
+            <a class="btn" href="/Swift-中的链表/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1214,7 +1045,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/说说-Swift-中的集合协议-Pt-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lumm">
@@ -1233,7 +1064,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/说说-Swift-中的集合协议-Pt-2/" itemprop="url">说说 Swift 中的集合协议--Pt.2</a></h1>
         
 
         <div class="post-meta">
@@ -1245,8 +1076,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T16:04:24+08:00">
-                2018-06-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-26T14:04:59+08:00">
+                2021-11-26
               </time>
             
 
@@ -1268,8 +1099,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1299,7 +1130,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  1,457
                 </span>
               
 
@@ -1315,7 +1146,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -1337,11 +1168,929 @@
 
       
         
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
+          <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e1695f8f1d042c3a8707d8a7a7fac95~tplv-k3u1fbpfcp-watermark.image?" alt="Collection.png"></p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在上篇文章 <a href="https://juejin.cn/post/7034536528940367909" target="_blank" rel="noopener">说说 Swift 中的集合协议–Pt.1</a> 中，我们把集合树中的 IteratorProtocol、Sequence、Collection 过了一遍，今天就来探索一下剩余的部分。</p>
+<hr>
+<h2 id="BidirectionalCollection"><a href="#BidirectionalCollection" class="headerlink" title="BidirectionalCollection"></a>BidirectionalCollection</h2><p>BidirectionalCollection 支持向后和向前遍历。它可以从任何有效索引(不包括集合的 startIndex)向后遍历。因此，它可以提供一些额外的操作，比如，可以快速的访问集合的最后一个元素。此外，它对某些序列和集合方法有更高效的实现，比如，reverse()。协议定义也很简单~</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">BidirectionalCollection</span>: <span class="title">Collection</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">index</span><span class="params">(before i: Index)</span></span> -&gt; <span class="type">Index</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/hello-world/" rel="contents">
+            <a class="btn" href="/说说-Swift-中的集合协议-Pt-2/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/说说-Swift-中的集合协议-Pt-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/说说-Swift-中的集合协议-Pt-1/" itemprop="url">说说 Swift 中的集合协议--Pt.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-25T23:56:46+08:00">
+                2021-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,295
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在 Swift 中，有一块内容，我一直都不太愿意去学，那就是全系列的集合类型。那现在为啥去看了呢，<del>因为卷</del> 主要原因是标准库中提供的具体实现–数组、集合和字典–能覆盖日常开发 99% 的情况。还有一个更重要的原因—-协议太多了！</p>
+<p>更不用说 Swift 5.5 了。介绍了一个全新的基于 AsyncSequence 的协议家族，不过这篇文章中不会涉及。</p>
+<p>那就让我们试着弄清楚每个协议的作用，以及为什么我们需要这么多协议。下面的图就展示了全系列的集合协议，我将从上到下依次介绍：</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c69c05c1645f4fe4a50e8a20cd91885a~tplv-k3u1fbpfcp-watermark.image?" alt="Collection协议.png"></p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/说说-Swift-中的集合协议-Pt-1/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/Xcode-的拼写检查，你开启了吗？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Xcode-的拼写检查，你开启了吗？/" itemprop="url">Xcode 的拼写检查，你开启了吗？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-24T22:21:34+08:00">
+                2021-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  652
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>作为一名开发人员，当我们编写代码时，我们会更多地关注逻辑和算法，而不是拼写和语法。但它也是我们编码的一个重要部分，特别是当我们从注释生成文档的时候。</p>
+<p>拼写检查帮助我们找出拼写错误，让我们有更多的时间关注代码逻辑。</p>
+<hr>
+<h2 id="拼写检查能识别什么"><a href="#拼写检查能识别什么" class="headerlink" title="拼写检查能识别什么"></a>拼写检查能识别什么</h2><p>答案就是代码中与<code>Spelling and Grammer</code>相关的所有内容</p>
+<ul>
+<li>变量名</li>
+<li>方法</li>
+<li>类</li>
+<li>注释</li>
+<li>字符串的字面量(包括本地化)</li>
+</ul>
+<p>先来看一段代码：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Xcode-的拼写检查，你开启了吗？/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/你可能不知道的-Swift-开发小技巧——Pt-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/你可能不知道的-Swift-开发小技巧——Pt-2/" itemprop="url">你可能不知道的 Swift 开发小技巧——Pt.2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-16T11:26:45+08:00">
+                2021-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,084
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>往期文章： <a href="https://juejin.cn/post/7030610828285968414" target="_blank" rel="noopener">你可能不知道的 Swift 开发小技巧——Pt.1</a></p>
+<hr>
+<h2 id="对数组进行分组"><a href="#对数组进行分组" class="headerlink" title="对数组进行分组"></a>对数组进行分组</h2><p>假如有一组文章，要把这些文章按照 category 进行分组，可以利用 <a href="https://juejin.cn/post/7030610828285968414" target="_blank" rel="noopener">Pt.1</a>中提到的，给字典的某个 key 设置默认值的技巧，实现如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> category: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> articles = [</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题1"</span>, category: <span class="string">"Swift"</span>),</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题2"</span>, category: <span class="string">"Swift"</span>),</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题3"</span>, category: <span class="string">"Objective-C"</span>),</span><br><span class="line">    <span class="type">Article</span>(title: <span class="string">"标题4"</span>, category: <span class="string">"Objective-C"</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> groupByCategory = [<span class="type">String</span> : [<span class="type">Article</span>]]()</span><br><span class="line"><span class="keyword">for</span> article <span class="keyword">in</span> articles &#123;</span><br><span class="line">    groupByCategory[article.category, <span class="keyword">default</span>: []].append(article)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(groupByCategory)</span><br></pre></td></tr></table></figure>
+<p>实际上我们可以使用 Dictionary 的内置初始化方法来简化上面的 for 循环：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/你可能不知道的-Swift-开发小技巧——Pt-2/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/你可能不知道的-Swift-开发小技巧——Pt-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/你可能不知道的-Swift-开发小技巧——Pt-1/" itemprop="url">你可能不知道的 Swift 开发小技巧——Pt.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-15T10:02:05+08:00">
+                2021-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,443
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在我一开始写 Swift 代码时，总是显的不简洁，没有充分发挥 Swift 的特性。随着写的时间长了，也总结了一些 Swift 开发的小技巧，让代码看起来更加简洁和高大上。</p>
+<p>内容一共分为两篇文章，我们先来看第一篇~</p>
+<hr>
+<h2 id="使用内置函数"><a href="#使用内置函数" class="headerlink" title="使用内置函数"></a>使用内置函数</h2><p>现在有个整型数组，我们想计算数组内所有数字之和。第一反应可能就是 for 循环，于是就写出了下面的代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">2021</span>, <span class="number">11</span>, <span class="number">12</span>]</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> number <span class="keyword">in</span> numbers &#123;</span><br><span class="line">    sum += number</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(sum)    <span class="comment">//2044</span></span><br></pre></td></tr></table></figure>
+<p>当然，这么写也没啥毛病，但我们可以使用 <code>reduce(_:_:)</code>把 for 循环简化成一行：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/你可能不知道的-Swift-开发小技巧——Pt-1/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ludamon.github.io/让你的-Swift-代码更-Swift/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lumm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/LuDamon/Sources/blob/master/Images/avatar.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS 知识小集">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/让你的-Swift-代码更-Swift/" itemprop="url">让你的 Swift 代码更 Swift</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-09T17:55:08+08:00">
+                2021-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,268
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Swift 有很多其他语言所没有的独特的结构和方法，因此很多刚开始接触 Swift 的开发者并没有发挥它本身的优势。</p>
+<p>所以，我们就来看一看那些让你的 Swift 代码更 Swift 的写法吧~</p>
+<hr>
+<h2 id="有条件的-for-循环"><a href="#有条件的-for-循环" class="headerlink" title="有条件的 for 循环"></a>有条件的 for 循环</h2><p>现在，我们要对<code>view.subviews</code>中的<code>UIButton</code>做一些不可描述的事情，用 for 循环怎么来遍历呢？</p>
+<p>在下面的写法中，更推荐后面两种写法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">❌</span><br><span class="line"><span class="keyword">for</span> subView <span class="keyword">in</span> view.subviews &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> button = subView <span class="keyword">as</span>? <span class="type">UIButton</span> &#123;</span><br><span class="line">        <span class="comment">//不可描述的事情</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">✅</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">case</span> <span class="keyword">let</span> button <span class="keyword">as</span> <span class="type">UIButton</span> <span class="keyword">in</span> view.subviews &#123;</span><br><span class="line">    <span class="comment">//不可描述的事情</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">✅</span><br><span class="line"><span class="keyword">for</span> button <span class="keyword">in</span> view.subviews <span class="keyword">where</span> button <span class="keyword">is</span> <span class="type">UIButton</span> &#123;</span><br><span class="line">    <span class="comment">//不可描述的事情</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/让你的-Swift-代码更-Swift/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1382,6 +2131,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1429,7 +2182,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1451,7 +2204,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1536,7 +2289,7 @@
 
 
 
-  <div class="theme-info"><i class="fa fa-pencil"></i> <span class="post-count">全站共3.7k字</span></div>
+  <div class="theme-info"><i class="fa fa-pencil"></i> <span class="post-count">全站共17.6k字</span></div>
 
 
         
