@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e1695f8f1d042c3a8707d8a7a7fac95~tplv-k3u1fbpfcp-watermark.image?">
 <meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/291236ffee2c4fb6a37e39cc134daac9~tplv-k3u1fbpfcp-watermark.image?">
 <meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53695980c2e64257a6d147607467c68c~tplv-k3u1fbpfcp-watermark.image?">
-<meta property="og:updated_time" content="2022-04-17T10:18:10.341Z">
+<meta property="og:updated_time" content="2022-04-17T10:32:10.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说说 Swift 中的集合协议--Pt.2">
 <meta name="twitter:description" content="引言在上篇文章 说说 Swift 中的集合协议–Pt.1 中，我们把集合树中的 IteratorProtocol、Sequence、Collection 过了一遍，今天就来探索一下剩余的部分。  BidirectionalCollectionBidirectionalCollection 支持向后和向前遍历。它可以从任何有效索引(不包括集合的 startIndex)向后遍历。因此，它可以提供一些">
@@ -439,7 +439,7 @@
 
       
         <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e1695f8f1d042c3a8707d8a7a7fac95~tplv-k3u1fbpfcp-watermark.image?" alt="Collection.png"></p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在上篇文章 <a href="https://juejin.cn/post/7034536528940367909" target="_blank" rel="noopener">说说 Swift 中的集合协议–Pt.1</a> 中，我们把集合树中的 IteratorProtocol、Sequence、Collection 过了一遍，今天就来探索一下剩余的部分。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在上篇文章 <a href="https://ludamon.github.io/%E8%AF%B4%E8%AF%B4-Swift-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E5%8D%8F%E8%AE%AE-Pt-1/">说说 Swift 中的集合协议–Pt.1</a> 中，我们把集合树中的 IteratorProtocol、Sequence、Collection 过了一遍，今天就来探索一下剩余的部分。</p>
 <hr>
 <h2 id="BidirectionalCollection"><a href="#BidirectionalCollection" class="headerlink" title="BidirectionalCollection"></a>BidirectionalCollection</h2><p>BidirectionalCollection 支持向后和向前遍历。它可以从任何有效索引(不包括集合的 startIndex)向后遍历。因此，它可以提供一些额外的操作，比如，可以快速的访问集合的最后一个元素。此外，它对某些序列和集合方法有更高效的实现，比如，reverse()。协议定义也很简单~</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">BidirectionalCollection</span>: <span class="title">Collection</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">index</span><span class="params">(before i: Index)</span></span> -&gt; <span class="type">Index</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
